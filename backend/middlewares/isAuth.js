@@ -37,7 +37,7 @@ export const isAuth = async(req, res, next) => {
 
         await redisClient.setEx(`user:${user._id}`, 3600, JSON.stringify(user));
 
-        req.user;
+        req.user = user;
         next();
     } catch (error) {
         res.status(500).json({
