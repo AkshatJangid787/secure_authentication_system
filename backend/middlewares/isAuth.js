@@ -44,4 +44,16 @@ export const isAuth = async(req, res, next) => {
             message: error.message,
         })
     }
+};
+
+export const authorizedAdmin = async (req, res, next) => {
+    const user = req.user;
+
+    if(user.role !== "admin"){
+        return res.status(401).json({
+            message: "You are not allowed for this activity",
+        });
+    }
+
+    next();
 }

@@ -283,4 +283,10 @@ export const refreshCSRF = TryCatch(async(req, res)=>{
         message: "CSRF token refreshed",
         csrfToken: newCSRFToken,
     })
-})
+});
+
+export const adminController = TryCatch(async(req, res)=>{
+    res.json({
+        message: "Hello admin",
+    });
+});
