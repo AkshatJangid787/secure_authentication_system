@@ -15,11 +15,13 @@ export const AppProvider = ({ children }) => {
         try {
             const { data } = await api.get(`/api/v1/me`);
 
-            setUser(data)
+            setUser(data.user);
             setIsAuth(true)
 
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            setUser(null);
+            setIsAuth(false);
         } finally {
             setLoading(false)
         }
