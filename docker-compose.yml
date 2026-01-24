@@ -21,8 +21,8 @@ services:
     container_name: frontend
     ports:
       - "5173:80"
-    env_file:
-      - ./frontend/.env
+    environment:
+      - VITE_API_URL=http://13.232.30.240:3000
     depends_on:
       - backend
     restart: always
