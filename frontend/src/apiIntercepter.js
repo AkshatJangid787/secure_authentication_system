@@ -1,6 +1,6 @@
 import axios  from "axios";
 
-const server = `${import.meta.env.VITE_API_URL}:3000`;
+const server = `${import.meta.env.VITE_API_URL}`;
 
 const getCookie = (name) => {
     const value = `; ${document.cookie}`;
