@@ -5,9 +5,9 @@ import api from '../apiIntercepter';
 const Dashboard = () => {
   const [content, setContent] = useState("");
 
-  async function fetchAdminData(){
+  async function fetchAdminData() {
     try {
-      const {data} = await api.get(`/api/v1/admin`,{
+      const { data } = await api.get(`/api/v1/admin`, {
         withCredentials: true
       })
 
@@ -16,16 +16,16 @@ const Dashboard = () => {
       toast.error(error.response.data.message)
     }
   }
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     fetchAdminData()
   }, [])
 
   return (
     <>
-    {
-      content && <div>{content}</div>
-    }
+      {
+        content && <div>{content}</div>
+      }
     </>
   )
 }

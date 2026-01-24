@@ -23,8 +23,8 @@ const Verify = () => {
       setLoading(false);
     }
   }
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     verifyUser();
   }, [])
 

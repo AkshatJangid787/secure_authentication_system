@@ -18,7 +18,7 @@ if (!redisUrl) {
   process.exit(1)
 }
 
-/* Redis Client */
+// Redis Client
 export const redisClient = createClient({
   url: redisUrl,
   socket: {
@@ -28,7 +28,7 @@ export const redisClient = createClient({
   }
 })
 
-/* VERY IMPORTANT: error handler */
+// VERY IMPORTANT: error handler
 redisClient.on("error", (err) => {
   console.error("Redis Error:", err.message)
 })
@@ -39,11 +39,14 @@ redisClient.on("connect", () => {
 
 await redisClient.connect()
 
-/* middleware */
+// middleware
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: [
+      process.env.FRONTEND_URL,
+      "http://localhost:5173",
+    ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 }))
