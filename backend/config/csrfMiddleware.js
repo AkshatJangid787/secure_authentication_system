@@ -10,7 +10,7 @@ export const generateCSRFToken = async (userId, res) => {
 
   res.cookie("csrfToken", csrfToken, {
     httpOnly: false,
-    secure: true,
+    secure: false,
     sameSite: "none",
     maxAge: 60 * 60 * 1000,
   });

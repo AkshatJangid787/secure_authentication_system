@@ -37,7 +37,7 @@ export const generateToken = async(id, res) => {
 
     res.cookie("accessToken", accessToken, {
         httpOnly: true,
-        secure: true,
+        secure: false,
         sameSite: "none",
         maxAge: 15*60*1000,
     })
@@ -46,7 +46,7 @@ export const generateToken = async(id, res) => {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
         sameSite: "none",
-        secure: true,
+        secure: false,
     })
     
     const csrfToken = await generateCSRFToken(id, res)
@@ -98,7 +98,7 @@ export const generateAccessToken = (id, sessionId, res) => {
 
     res.cookie("accessToken", accessToken, {
         httpOnly: true,
-        secure: true,
+        secure: false,
         sameSite: "none",
         maxAge: 15 * 60 * 1000,
     });
