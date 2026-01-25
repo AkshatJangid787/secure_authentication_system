@@ -58,6 +58,11 @@ export const isAuth = async(req, res, next) => {
         req.sessionId = decodedData.sessionId;
         next();
     } catch (error) {
+        if (error.name === "TokenExpiredError") {
+            return res.status(403).json({
+                message: "Token expired",
+            });
+        }
         res.status(500).json({
             message: error.message,
         })
