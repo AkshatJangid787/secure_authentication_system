@@ -1,6 +1,6 @@
 import axios  from "axios";
 
-const server = import.meta.env.VITE_API_URL || "http://65.0.27.172:3000";
+const server = import.meta.env.VITE_API_URL || "http://3.91.58.201:3000";
 
 const getCookie = (name) => {
     const value = `; ${document.cookie}`;
